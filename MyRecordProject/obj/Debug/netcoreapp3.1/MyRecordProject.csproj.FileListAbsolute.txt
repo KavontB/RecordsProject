@@ -11,3 +11,16 @@ C:\Users\kavon\source\repos\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp
 C:\Users\kavon\source\repos\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.dll
 C:\Users\kavon\source\repos\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.pdb
 C:\Users\kavon\source\repos\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.genruntimeconfig.cache
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\bin\Debug\netcoreapp3.1\MyRecordProject.exe
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\bin\Debug\netcoreapp3.1\MyRecordProject.deps.json
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\bin\Debug\netcoreapp3.1\MyRecordProject.runtimeconfig.json
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\bin\Debug\netcoreapp3.1\MyRecordProject.runtimeconfig.dev.json
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\bin\Debug\netcoreapp3.1\MyRecordProject.dll
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\bin\Debug\netcoreapp3.1\MyRecordProject.pdb
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.csprojAssemblyReference.cache
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.AssemblyInfoInputs.cache
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.AssemblyInfo.cs
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.csproj.CoreCompileInputs.cache
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.dll
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.pdb
+C:\Users\kavon\OneDrive\Desktop\Record Project\MyRecordProject\MyRecordProject\obj\Debug\netcoreapp3.1\MyRecordProject.genruntimeconfig.cache
