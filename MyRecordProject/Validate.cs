@@ -31,13 +31,13 @@ namespace MyRecordProject
                 return false;
             }
 
-            
+
 
         }
         public bool FirstName_IsValid(string name)
         {
-            
-            if (name != null && name.Length <=20)
+
+            if (name != null && name.Length <= 20)
             {
                 return true;
             }
@@ -45,7 +45,7 @@ namespace MyRecordProject
             throw new NotImplementedException();
 
         }
-        public bool LastName_IsValid(string name )
+        public bool LastName_IsValid(string name)
         {
             if (name != null && name.Length <= 20)
             {
@@ -77,17 +77,23 @@ namespace MyRecordProject
         }
         public bool State_IsValid(string state)
         {
-            if (state != null && state.Length <= 2)
+            if (state != null && state.Length == 2)
             {
-                return true;
+
+                for (int i = 0; i < state.Length; i++)
+                {
+                    //checks if the two letter are uppercase to see if state initials were given
+                    if (Char.IsLetter(state[i]) && Char.IsUpper(state[i]))
+                        return true;
+                }
+
             }
 
-            throw new NotImplementedException();
-
+            return false;
         }
         public bool Amount_IsValid(double amount)
         {
-            if (amount != 0  && amount <= 10000 && amount.ToString().Length == 6)
+            if (amount != 0 && amount <= 10000 && amount.ToString().Length == 6)
             {
                 return true;
             }
@@ -96,7 +102,7 @@ namespace MyRecordProject
                 return false;
             }
 
-           
+
 
         }
     }

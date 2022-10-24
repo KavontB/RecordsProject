@@ -14,123 +14,110 @@ namespace MyRecordProject
 
             var file = File.ReadAllLines(path);
             Validate validate = new Validate();
-            //int counter = 0;
             List<string> recordNumbers = new List<string>();
             List<string> accountNumbers = new List<string>();
-            List<string> fName = new List<string>();
+            List<string> stateList = new List<string>();
+            //List<string> cityList = new List<string>();
             List<string> amountList = new List<string>();
-            try
+
+
+
+            foreach (var line in file)
             {
 
-                foreach (var line in file)
+
+                var spaced = Regex.Replace(line, @"\s+", " ");
+                var strArr = spaced.Split(' ');
+                var recAndAcc = strArr[0] + " " + strArr[1];
+                var record = string.Join("", line.Take(4));
+                recordNumbers.Add(record);
+
+
+                //I dont want to do it by the number of spaces because names can be different lengths 
+                //and i wanted my code to be dynamic
+                var account = "";
+
+                if (string.Join("", recAndAcc.Take(1)).Contains(" "))
                 {
-
-
-                    var spaced = Regex.Replace(line, @"\s+", " ");
-                    var strArr = spaced.Split(' ');
-                    var recAndAcc = strArr[0] + " " + strArr[1];
-                    var record = string.Join("", line.Take(4));
-                    recordNumbers.Add(record);
-
-                    // List<char> rNum = recordNum.ToList();
-                    //var recordNum = line.Take(4);
-                    // var record = string.Join("", recordNum);
-                    //rNums.Add(record);
-
-                    // List<char> rNum = recordNum.ToList();
-                    // var accountNum = line.Skip(4).Take(14);
-                    // var account = string.Join("", accountNum);
-                    //  aNums.Add(account);
-                    //I dont want to do it by the number of spaces because names can be different lengths 
-                    //and i didnt want my code to only work for this file
-                    var account = "";
-                   
-                    if (string.Join("", recAndAcc.Take(1)).Contains(" "))
-                    {
-                        account = string.Join("", recAndAcc.Skip(2).Take(10));
-                        accountNumbers.Add(account);
-                    }
-                    else { 
+                    account = string.Join("", recAndAcc.Skip(2).Take(10));
+                    accountNumbers.Add(account);
+                }
+                else
+                {
                     account = string.Join("", recAndAcc.Skip(4).Take(10));
                     accountNumbers.Add(account);
                 }
-                    /*var first = idk[1];
-                   var val = string.Join("", first);
-                   fName.Add(val);
-                   */
-
-                    //var num =idk.TakeLast(7);
-
-                    //var reversed = idk[idk.Length - 1].Reverse();
-                    
-
-                    var endOfLine = strArr[strArr.Length - 1];
-                   // noname.TakeLast()
 
 
-                    var amount = "";
-                    if (string.Join("", endOfLine.TakeLast(1)).Contains("."))
-                    {
-                        amount = string.Join("", endOfLine.TakeLast(5));
-                       // Console.WriteLine(string.Join("", endOfLine.TakeLast(5).Skip(4)));
-                       // Console.WriteLine(string.Join("", endOfLine.TakeLast(5)));
-                        amountList.Add(amount);
-                    }
-                    else
-                    {
-                        amount = string.Join("", endOfLine.TakeLast(7));
-                        amountList.Add(amount);
-                    }
-                    
 
-                    
-                    //Convert.ToDouble(num);
-                   // Console.WriteLine(num);
-                    
 
+
+                var endOfLine = strArr[strArr.Length - 1];
+                //var secondToLast = strArr[strArr.Length - 2];
+
+
+
+                var reversedStrArr = strArr.Reverse();
+
+                var reversedEndOfLine = endOfLine.Reverse();
+
+                var amount = "";
+                var state = "";
+                //var city = "";
+
+                if (string.Join("", reversedStrArr.First().TakeLast(1)).Contains("."))
+                {
+                    amount = string.Join("", reversedStrArr.First().TakeLast(5));
+                    state = string.Join("", reversedEndOfLine.Skip(5).Take(2).Reverse());
+                    // city = string.Join("", reversedEndOfLine.Skip(7).Reverse());
+                    // cityList.Add(city);
+                    stateList.Add(state);
+                    amountList.Add(amount);
+                }
+                else
+                {
+
+                    amount = string.Join("", reversedStrArr.First().TakeLast(7));
+                    state = string.Join("", reversedEndOfLine.Skip(7).Take(2).Reverse());
+                    // city = string.Join("", reversedEndOfLine.Skip(9).Reverse());
+                    // Console.WriteLine(city);
+                    //cityList.Add(city);
+                    stateList.Add(state);
+                    amountList.Add(amount);
 
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error :{0} ", ex.Message);
-            }
+
             for (int i = 0; i < recordNumbers.Count(); i++)
             {
                 var value = 0.0;
-                if (validate.RecordNumber_IsValid(recordNumbers[i]) == false)
+                if (!validate.RecordNumber_IsValid(recordNumbers[i]))
                 {
                     Console.WriteLine("Invalid Record Number " +
                         "on line " + $"{i + 1}");
                 }
-                if (validate.AccountNumber_IsValid(accountNumbers[i]) == false)
+                if (!validate.AccountNumber_IsValid(accountNumbers[i]))
                 {
-                   
+
                     Console.WriteLine(recordNumbers[i] + " Account Number " + $"{accountNumbers[i]}");
-                
+
                 }
-                try
-                {
-                     value = Convert.ToDouble(amountList[i]);
-                }catch
-                {
-                    
-                }
-                if (validate.Amount_IsValid(value) == false)
+                try { value = Convert.ToDouble(amountList[i]); } catch { }
+                if (!validate.Amount_IsValid(value))
                 {
 
                     Console.WriteLine(recordNumbers[i] + " Amount " + $"{amountList[i]}");
                 }
-                
+                if (!validate.State_IsValid(stateList[i]))
+                {
+                    Console.WriteLine(recordNumbers[i] + " State " + $"{stateList[i]}");
+                }
 
             }
-           
-        }
-
-           
-
 
         }
 
     }
+
+}
 
